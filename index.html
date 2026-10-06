@@ -144,6 +144,697 @@
     <footer>
         WHO WE ARE
     </footer>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta name="naver-site-verification" content="32252c030114f4c157ce4dfe02801f8a3f7d9a76" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>호빗커뮤니케이션 (Hobbit Communication)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #EFEBE2; /* 세련된 오트밀 베이지 */
+            --text-main: #1A1A1A; /* 차콜 블랙 */
+            --text-sub: #666666;
+            --accent-color: #9C917F;
+            --card-bg: #FFFFFF;
+            --border-light: rgba(156, 145, 127, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 999;
+            background: rgba(239, 235, 226, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            letter-spacing: -0.05em; /* 자간 축소 적용 */
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .hero {
+            position: relative;
+            padding: 180px 0 120px 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .vertical-text-left {
+            position: absolute;
+            left: 5%;
+            top: 35%;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--accent-color);
+            writing-mode: vertical-rl;
+            text-transform: uppercase;
+            opacity: 0.8;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .decoration-box {
+            position: absolute;
+            right: 8%;
+            top: 120px;
+            border: 1px solid var(--accent-color);
+            padding: 10px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--accent-color);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .decoration-vertical-box {
+            position: absolute;
+            right: 5%;
+            top: 40%;
+            width: 1px;
+            height: 150px;
+            background-color: var(--accent-color);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 3.2rem;
+            letter-spacing: -0.05em; /* 자간 축소 적용 */
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 0.15em;
+            color: var(--text-sub);
+            font-weight: 300;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-sub);
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(156, 145, 127, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            word-break: keep-all;
+            font-weight: 300;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(156, 145, 127, 0.15);
+        }
+
+        .portfolio-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .portfolio-image {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .default-fit {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-card:hover .portfolio-image {
+            transform: scale(1.03); /* 호버 시 약간의 줌 효과 유지 */
+        }
+
+        .portfolio-info {
+            padding: 40px 32px;
+        }
+
+        .portfolio-category {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .portfolio-work-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .portfolio-desc {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        footer {
+            padding: 120px 0 80px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+            background: linear-gradient(to bottom, var(--bg-color) 0%, #E6E1D3 100%);
+        }
+
+        .footer-name-section {
+            margin-bottom: 40px;
+        }
+
+        .footer-name-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            letter-spacing: 0.15em;
+            display: inline-block;
+            margin-right: 16px;
+            vertical-align: middle;
+        }
+
+        .signature {
+            font-family: 'Caveat', cursive;
+            font-size: 2.8rem;
+            color: var(--text-main);
+            display: inline-block;
+            line-height: 0.8;
+            padding-bottom: 8px;
+            vertical-align: middle;
+        }
+
+        .contact-block {
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            font-size: 1.1rem;
+            margin: 16px 0;
+            color: var(--text-sub);
+            font-weight: 300;
+        }
+
+        .contact-item strong {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            font-weight: 500;
+            margin-right: 12px;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-item a {
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .contact-item a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--text-main);
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .contact-item a:hover {
+            color: var(--text-main);
+        }
+
+        .contact-item a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .ceo-title {
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            color: var(--text-main);
+            margin-top: 30px;
+            font-weight: 400;
+        }
+
+        .copyright {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            letter-spacing: 0.1em;
+            margin-top: 60px;
+        }
+
+        .floating-action {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 16px;
+        }
+
+        .floating-btn {
+            background-color: var(--text-main);
+            color: #fff;
+            border: none;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px);
+            background-color: #333;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .floating-links {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-light);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            animation: floatUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .floating-links.show {
+            display: flex;
+        }
+
+        .float-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .float-link:hover {
+            background: var(--bg-color);
+        }
+
+        .float-link i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">HOBBIT COMMUNICATION</a>
+            <div class="nav-links">
+                <a href="#about">ABOUT</a>
+                <a href="#services">SERVICES</a>
+                <a href="#works">WORKS</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero reveal active">
+        <div class="vertical-text-left">Youtube / Marketing</div>
+        <div class="decoration-box">Online / Marketing</div>
+        <div class="decoration-vertical-box"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Hobbit Communication</h1>
+            <p class="hero-subtitle">호빗 커뮤니케이션</p>
+        </div>
+    </section>
+
+    <section id="about" class="reveal">
+        <div class="container">
+            <span class="section-label">who we are</span>
+            <h2 class="section-title">스토리를 가치 있는 콘텐츠로 만듭니다</h2>
+            <p class="intro-text">
+                호빗 커뮤니케이션은 유튜브 콘텐츠 기획부터 마케팅, 그리고 브랜드의 가치를 높이는 
+                영상 제작까지 함께 고민하는 파트너입니다.<br>감각적인 기획력과 차별화된 세팅으로, 
+                그냥 스쳐 지나가는 영상이 아닌 사람들의 마음속에 깊이 남는 울림을 가진 콘텐츠를 만듭니다.
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="reveal">
+        <div class="container">
+            <span class="section-label">our services</span>
+            <h2 class="section-title">우리가 하는 일</h2>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <i class="fa-brands fa-youtube service-icon"></i>
+                    <h3>유튜브 기획 및 운영</h3>
+                    <p>기업, 병원, 브랜드의 특성에 맞는 채널 기획부터 최신 유튜브 알고리즘을 활용한 전략적인 채널 운영까지 총괄합니다.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <i class="fa-solid fa-video service-icon"></i>
+                    <h3>맞춤형 영상 제작</h3>
+                    <p>매월 20편 이상의 고품질 영상을 안정적으로 제작하며, 무채색 톤의 리얼리스틱한 무드로 사실에 기반한 신뢰감을 줍니다.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <i class="fa-solid fa-pen-nib service-icon"></i>
+                    <h3>콘텐츠 자막 및 편집</h3>
+                    <p>문맥과 단락별 포인트 자막을 적재적소에 배치하고, 텍스트는 최소화하여 영상의 정보 전달력과 가독성을 극대화합니다.</p>
+                </div>
+                <!-- Marketing 1: 플레이스, 카카오, DB -->
+                <div class="service-card">
+                    <i class="fa-solid fa-map-location-dot service-icon"></i>
+                    <h3>로컬 마케팅 & CS</h3>
+                    <p>네이버 플레이스 상위노출, 고객 리뷰 응대 및 전반적인 관리부터 카카오플러스 채널 관리, 체계적인 고객 상담과 DB 관리를 지원합니다.</p>
+                </div>
+                <!-- Marketing 2: 홈페이지, 블로그, SNS -->
+                <div class="service-card">
+                    <i class="fa-solid fa-share-nodes service-icon"></i>
+                    <h3>웹 & 다매체 마케팅</h3>
+                    <p>브랜드 맞춤형 홈페이지 제작 및 관리부터 퀄리티 높은 블로그 발행, 유튜브 마케팅, 인스타 릴스와 페이스북까지 전방위 매체를 운영합니다.</p>
+                </div>
+                <!-- Marketing 3: AI 분석 -->
+                <div class="service-card">
+                    <i class="fa-solid fa-robot service-icon"></i>
+                    <h3>AI 분석 및 통계</h3>
+                    <p>AI(인공지능)를 적극 활용한 심층 분석 및 통계를 통해 마케팅 성과를 입체적으로 측정하고 최적화된 인사이트를 도출합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="reveal">
+        <div class="container">
+            <span class="section-label">portfolio</span>
+            <h2 class="section-title">Selected Works</h2>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image-wrapper">
+                        <!-- 요구하신 강제 크롭 스타일 적용 (바닥 검은선 제거) -->
+                        <img src="studio.png" alt="방송 스튜디오" style="width: 100%; height: 115%; object-fit: cover; object-position: center top;" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">studio production</span>
+                        <h3 class="portfolio-work-title">종합병원 건강정보 토크쇼 제작</h3>
+                        <p class="portfolio-desc">신뢰감을 주는 전문적인 연출과 세련된 스튜디오 세팅으로 브랜드 가치를 높인 프로젝트입니다.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="감각적인 병원 내부" class="portfolio-image default-fit">
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">branded film</span>
+                        <h3 class="portfolio-work-title">기업소개 홍보영상</h3>
+                        <p class="portfolio-desc">모던하고 감각적인 병원 공간과 철학을 시각적 미학으로 담아낸 프리미엄 홍보 영상입니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="reveal">
+        <div class="container">
+            <div class="footer-name-section">
+                <span class="footer-name-label">NAME</span>
+                <span class="signature">Grace kim</span>
+            </div>
+
+            <div class="contact-block">
+                <p class="contact-item"><strong>TEL.</strong> <a href="tel:01081030620">010.8103.0620</a></p>
+                <p class="contact-item"><strong>E-MAIL.</strong> <a href="mailto:hobitcompany@gmail.com">hobitcompany@gmail.com</a></p>
+                <p class="contact-item"><strong>KAKAO ID.</strong> <a href="https://qr.kakao.com/talk/grace5144" target="_blank">grace5144</a></p>
+                <p class="ceo-title">대표 김은혜</p>
+            </div>
+
+            <p class="copyright">&copy; HOBBIT COMMUNICATION. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <div class="floating-action">
+        <div class="floating-links" id="contactLinks">
+            <a href="tel:01081030620" class="float-link">
+                <i class="fa-solid fa-phone"></i> 바로 전화 걸기
+            </a>
+            <a href="mailto:hobitcompany@gmail.com" class="float-link">
+                <i class="fa-solid fa-envelope"></i> 이메일 문의하기
+            </a>
+            <a href="https://kakao.com/talk/grace5144" target="_blank" class="float-link">
+                <i class="fa-solid fa-comment"></i> 카카오톡 문의
+            </a>
+        </div>
+        <button class="floating-btn" id="floatingToggle">
+            <i class="fa-regular fa-comment-dots"></i> 빠른 문의하기
+        </button>
+    </div>
+
+    <script>
+        const btn = document.getElementById('floatingToggle');
+        const links = document.getElementById('contactLinks');
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            links.classList.toggle('show');
+        });
+        document.addEventListener('click', (e) => {
+            if(!links.contains(e.target) && e.target !== btn) {
+                links.classList.remove('show');
+            }
+        });
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // 초기 로딩 시 적용
+    </script>
+</body>
+</html>
 
     <!-- 카카오/오픈채팅 주소는 필요할 때 href 안에 넣어주면 돼 -->
     <a href="#" class="float-btn">
