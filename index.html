@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta name="naver-site-verification" content="32252c030114f4c157ce4dfe02801f8a3f7d9a76" />
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta name="naver-site-verification" content="32252c030114f4c157ce4dfe02801f8a3f7d9a76" />
@@ -149,10 +149,11 @@
             z-index: 2;
         }
 
+        /* 모바일 타이틀 크기 축소 (1.9rem) */
         .hero-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
-            font-size: 2.4rem;
+            font-size: 1.9rem;
             letter-spacing: -0.05em;
             margin-bottom: 12px;
             color: var(--text-main);
@@ -160,7 +161,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 0.15em;
             color: var(--text-sub);
             font-weight: 300;
@@ -487,7 +488,7 @@
             .nav-links { gap: 40px; }
             .nav-links a { font-size: 0.85rem; }
             .hero { padding: 180px 0 120px 0; min-height: 80vh; }
-            .hero-title { font-size: 3.2rem; }
+            .hero-title { font-size: 3.2rem; } /* PC에서는 원래대로 큼직하게 유지 */
             .section-title { font-size: 2rem; }
             section { padding: 120px 0; }
             .services-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -505,24 +506,12 @@
         @media (max-width: 380px) {
             .nav-links { gap: 12px; }
             .nav-links a { font-size: 0.7rem; }
-            .hero-title { font-size: 2rem; }
+            .hero-title { font-size: 1.65rem; }
             .vertical-text-left, .decoration-box, .decoration-vertical-box { display: none; }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="container nav-inner">
-            <a href="#" class="logo">HOBBIT COMMUNICATION</a>
-            <div class="nav-links">
-                <a href="#about">ABOUT</a>
-                <a href="#services">SERVICES</a>
-                <a href="#works">WORKS</a>
-                <a href="#contact">CONTACT</a>
-            </div>
-        </div>
-    </header>
 
     <section class="hero reveal active">
         <div class="vertical-text-left">Youtube / Marketing</div>
