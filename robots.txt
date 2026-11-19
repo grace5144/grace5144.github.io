@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.hobbitcompany.co.kr/sitemap.xml
